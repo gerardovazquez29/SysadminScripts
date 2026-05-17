@@ -1,17 +1,18 @@
 =============================================
-REPORTE DEL SISTEMA2026-05-17 08:36:28
+REPORTE DEL SISTEMA
+2026-05-17 08:53:46
 =============================================
 PC:  SANTIAGOVAZQUEZ
 OS:  Microsoft Windows 10 Pro
 RAM  (GB):  15.88
  TOP 5 PROCESOS: 
-Name       CPU
-----       ---
-Code  126.6875
-Code 122.46875
-Code    53.875
-Code   18.3125
-Code   17.3125
+Name          CPU
+----          ---
+Code   183.921875
+Code   130.421875
+Code     62.34375
+claude   61.65625
+Code     39.59375
  USUARIOS: 
 Name               Enabled
 ----               -------
