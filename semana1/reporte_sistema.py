@@ -11,7 +11,7 @@ def ejecutar_ps(comando):
 
 # info del sistema
 nombre_pc = ejecutar_ps("(Get-ComputerInfo).CsName")
-Os_nombre = ejecutar_ps("(Get-ComputerInfo).OsName")
+os_nombre = ejecutar_ps("(Get-ComputerInfo).OsName")
 #ram = ejecutar_ps("(Get-ComputerInfo).TotalPhysicalMemory / 1GB")
 ram_comando = "[math]::Round((Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB, 2)"
 ram = ejecutar_ps(ram_comando)
@@ -31,13 +31,14 @@ usuarios = ejecutar_ps(
 )
 
 # imprimir reporte
+ram_valor = 0.0
 try:
     print("=" *45)
     print(f" REPORTE DEL SISTEMA")
     print(f" {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" *45)
     print(f"PC:         {nombre_pc}")
-    print(f"OS:         {Os_nombre}")
+    print(f"OS:         {os_nombre}")
     ram_valor = float(ram.replace(',', '.')) # Remplazar coma por punto por si acaso
     print(f"RAM  (GB):  {ram_valor:.2f}")
     print("\n-- TOP 5 PROCESOS --")
@@ -55,11 +56,11 @@ nombre_archivo = (
 
 with open(nombre_archivo, "w", encoding="utf-8") as f:
     f.write("=" * 45 + "\n")
-    f.write(f"REPORTE DEL SISTEMA")
+    f.write(f"REPORTE DEL SISTEMA\n")
     f.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
     f.write("=" * 45 + "\n")
     f.write(f"PC:  {nombre_pc}\n")
-    f.write(f"OS:  {Os_nombre}\n")
+    f.write(f"OS:  {os_nombre}\n")
     f.write(f"RAM  (GB):  {ram_valor:.2f}")
     f.write("\n TOP 5 PROCESOS: \n")
     f.write(top_procesos)
