@@ -2,6 +2,10 @@
 import psycopg2
 import subprocess
 from datetime import datetime
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
 # conexion
@@ -9,7 +13,7 @@ conn = psycopg2.connect(
     host="localhost",
     database="sysadmin_db",
     user="postgres",
-    password="13Cod29sql",
+    password=os.environ.get("DB_PASSWORD", ""),
     options="-c client_encoding=WIN1252" 
 )
 cur = conn.cursor()
